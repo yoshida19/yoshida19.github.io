@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <title>Vue.js sample</title>
+    <link rel="stylesheet" href="style.css" >
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app" class="row">
+        <div class="offset-3 col-6">
+            <div class="card">
+                <div class="card-body">
+                    <p class="badge badge-dark">第 1 問</p>
+                    <br>
+                    <h4 class="card-title">囲碁の石の大きさはどっちが大きい？</h4>
+                    <hr>
+                    <button type="button" class="btn btn-primary btn-lg btn-block text-left">1. 白い石</button>
+                    <button type="button" class="btn btn-primary btn-lg btn-block text-left">2. 黒い石</button>
+                    <button type="button" class="btn btn-primary btn-lg btn-block text-left">3. どちらも同じ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app'
+        })
+
+    </script>
+</body>
+</html>
