@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <title>Vue.js sample</title>
+    <link rel="stylesheet" href="style.css" >
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app" class="row">
+        <div class="offset-3 col-6">
+            <div class="card">
+                <div class="card-body">
+                    <p class="badge badge-dark">第 {{ (questionIndex+1) }} 問</p>
+                    <br>
+                    <h4 class="card-title">{{ currentQuestion.question }}</h4>
+                    <hr>
+                    <button
+                        type="button"
+                        class="btn btn-primary btn-lg btn-block text-left"
+                        v-for="(answer,index) in currentQuestion.answers"
+                        @click="addAnswer(index)">{{ (index+1) }}. {{ answer }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+   
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+
+            //全ての解答を保持しておく変数↓
+            answers: [],
+
+            questionIndex: 0,
+            questions: [
+                {
+                    question: '囲碁の石の大きさはどっちが大きい？',
+                    answers: [
+                        '白い石',
+                        '黒い石',
+                        'どちらも同じ',
+                    ],
+                    answer: 1
+                },
+                {
+                    question: 'コンビニチェーン・セブンイレブンのアルファベット表記で１文字だけ小文字なのは？',
+                    answers: [
+                        'N',
+                        'L',
+                        'V',
+                    ],
+                    answer: 0
+                },
+                {
+                    question: 'カラオケは「空○○」略です。空欄に入る言葉は何？',
+                    answers: [
+                        'OK',
+                        'オーケストラ',
+                        'おけら',
+                    ],
+                    answer: 1
+                }
+            ]
+        },
+        methods: {
+            addAnswer: function(index) {
+
+                this.answers.push(index);
+
+                //問題数＝回答数の時
+                if(this.questions.length == this.answers.length) {
+
+                } else {
+
+                //次の問題へ
+                    this.questionIndex++;
+
+                }
+
+            } 
+        },
+
+        //○問のクイズを出す
+        computed: {
+            currentQuestion: function() {
+
+                return this.questions[this.questionIndex];
+
+            },
+            completed: function() {
+
+                return (this.questions.length == this.answers.length);
+
+            }
+        }
+    })
+</script>
+</body>
+</html>
