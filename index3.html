@@ -15,6 +15,8 @@
                     <br>
                     <h4 class="card-title">{{ currentQuestion.question }}</h4>
                     <hr>
+                    <img src="rosian.jpg" id="neko"></img>
+                    <br>
                     <button
                         type="button"
                         class="btn btn-primary btn-lg btn-block text-left"
@@ -43,7 +45,8 @@
                         'ロシアンブルー',
                         'ベンガル',
                     ],
-                    answer: 1
+                    answer: 1,
+                    neko:"rosian.jpg"
                 },
                 {
                     question: 'この猫は何の種類でしょう？',
@@ -52,7 +55,8 @@
                         'ラグドール',
                         'スコティッシュフォールド',
                     ],
-                    answer: 0
+                    answer: 0,
+                    neko:"man.jpg"
                 },
                 {
                     question: 'この猫は何の種類でしょう？',
@@ -61,7 +65,8 @@
                         'ペルシャ',
                         'シャム',
                     ],
-                    answer: 1
+                    answer: 1,
+                    neko:"peru.jpg"
                 }
             ]
         },
@@ -92,7 +97,8 @@
 
                 //次の問題へ
                     this.questionIndex++;
-
+                    var img = document.getElementById('neko');
+                    img.setAttribute('src', this.questions[this.questionIndex].neko);
                 }
 
             } 
